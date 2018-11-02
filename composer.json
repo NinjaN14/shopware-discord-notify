@@ -1,0 +1,19 @@
+{
+    "name": "padrio/shopware-discord-order-notify",
+    "description": "Notifies a discord channel via webhook when a new order has been placed",
+    "type": "shopware-plugin",
+    "extra": {
+        "installer-name": "DiscordNotify"
+    },
+    "authors": [
+        {
+            "name": "Pascal Krason",
+            "email": "p.krason@padr.io"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^5.3",
+        "composer/installers": "^1.6",
+        "symfony/expression-language": "^4.1"
+    }
+}

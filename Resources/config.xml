@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.3/engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+        <element type="text" required="true">
+            <name>webhookUrl</name>
+            <label lang="de">Webhook URL</label>
+            <label lang="en">Webhook URL</label>
+        </element>
+
+        <element type="text" required="false">
+            <name>username</name>
+            <label lang="de">Benutzername</label>
+            <label lang="en">Username</label>
+            <value>SWAG-Webhook</value>
+            <description lang="de">Optinaler Benutzername von welchem die Nachricht im Discord erscheinen soll.</description>
+            <description lang="en">Optional username for the user from which the messages comes from.</description>
+        </element>
+        
+        <element type="textarea" required="true">
+            <name>messageTemplate</name>
+            <label lang="de">Nachricht</label>
+            <label lang="en">Message</label>
+            <value>Es wurde eine neue Bestellung aufgegeben.</value>
+            <description lang="de">Nachricht welche verschickt wird. Für Variablen bitte in die Dokumentation schauen.</description>
+            <description lang="en">Message which will be sent into the channel. Please check the documentation for variables.</description>
+        </element>
+
+    </elements>
+</config>
