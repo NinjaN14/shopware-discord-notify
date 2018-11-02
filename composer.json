@@ -13,7 +13,6 @@
     ],
     "require": {
         "guzzlehttp/guzzle": "^5.3",
-        "composer/installers": "^1.6",
-        "symfony/expression-language": "^4.1"
+        "composer/installers": "^1.6"
     }
 }

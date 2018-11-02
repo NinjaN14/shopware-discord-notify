@@ -13,5 +13,5 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
  */
 class DiscordNotify extends Plugin
 {
-
+    const PLUGIN_NAME = 'DiscordNotify';
 }

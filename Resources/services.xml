@@ -5,9 +5,8 @@
 
     <services>
         <service id="discord_notify.config" class="DiscordNotify\Components\Config">
-            <argument type="expression">service('config').get('DiscordNotify::webhookUrl')</argument>
-            <argument type="expression">service('config').get('DiscordNotify::username')</argument>
-            <argument type="expression">service('config').get('DiscordNotify::messageTemplate')</argument>
+            <factory service="shopware.plugin.cached_config_reader" method="getByPluginName" />
+            <argument type="string">DiscordNotify</argument>
         </service>
 
         <service id="discord_notify.client" class="DiscordNotify\Components\Discord\Client">

@@ -2,13 +2,13 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.3/engine/Shopware/Components/Plugin/schema/config.xsd">
     <elements>
-        <element type="text" required="true">
+        <element type="text" required="true" scope="shop">
             <name>webhookUrl</name>
             <label lang="de">Webhook URL</label>
             <label lang="en">Webhook URL</label>
         </element>
 
-        <element type="text" required="false">
+        <element type="text" required="false" scope="shop">
             <name>username</name>
             <label lang="de">Benutzername</label>
             <label lang="en">Username</label>
@@ -17,7 +17,7 @@
             <description lang="en">Optional username for the user from which the messages comes from.</description>
         </element>
         
-        <element type="textarea" required="true">
+        <element type="textarea" required="true" scope="shop">
             <name>messageTemplate</name>
             <label lang="de">Nachricht</label>
             <label lang="en">Message</label>
