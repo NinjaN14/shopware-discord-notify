@@ -21,7 +21,7 @@
             <name>messageTemplate</name>
             <label lang="de">Nachricht</label>
             <label lang="en">Message</label>
-            <value>Es wurde eine neue Bestellung aufgegeben.</value>
+            <value>Es wurde eine neue Bestellung von {{sUserData.billingaddress.firstname}} {{sUserData.billingaddress.lastname}} im Wert von {{sAmount}} {{sBasketView.sCurrencyName}} aufgegeben. Die Bestellnummer lautet: {{sOrderNumber}}.</value>
             <description lang="de">Nachricht welche verschickt wird. Für Variablen bitte in die Dokumentation schauen.</description>
             <description lang="en">Message which will be sent into the channel. Please check the documentation for variables.</description>
         </element>

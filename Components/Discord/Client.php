@@ -20,12 +20,14 @@ final class Client
     }
 
     /**
+     * @param string $message
+     *
      * @return bool
      * @throws UnexpectedResponseException
      */
-    public function notify(): bool
+    public function notify($message): bool
     {
-        $payload = $this->getPayload($this->config);
+        $payload = $this->getPayload($this->config['username'], $message);
         $handle = $this->createCurlHandle($this->config, $payload);
 
         $response = curl_exec($handle);
@@ -58,11 +60,11 @@ final class Client
         return $handle;
     }
 
-    private function getPayload(array $config): string
+    private function getPayload($username, $mesage): string
     {
         $payload = [
-            'content' => $config['messageTemplate'],
-            'name' => $config['username'],
+            'name' => $username,
+            'content' => $mesage,
         ];
 
         return json_encode($payload);

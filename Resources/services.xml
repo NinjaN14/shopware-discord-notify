@@ -9,6 +9,10 @@
             <argument type="string">DiscordNotify</argument>
         </service>
 
+        <service id="discord_notify.message_builder" class="DiscordNotify\Components\MessageBuilder">
+            <argument type="service" id="discord_notify.config" />
+        </service>
+
         <service id="discord_notify.client" class="DiscordNotify\Components\Discord\Client">
             <argument type="service" id="discord_notify.config" />
         </service>
@@ -16,6 +20,7 @@
         <service id="discord_notify.subscriber.notify_channel" class="DiscordNotify\Subscriber\NotifyChannel">
             <tag name="shopware.event_subscriber" />
             <argument type="service" id="discord_notify.client" />
+            <argument type="service" id="discord_notify.message_builder" />
         </service>
     </services>
 </container>
