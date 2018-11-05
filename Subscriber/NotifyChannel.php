@@ -6,6 +6,7 @@ use DiscordNotify\Components\Discord\Client;
 use DiscordNotify\Components\MessageBuilder;
 use Enlight\Event\SubscriberInterface;
 use Enlight_Event_EventArgs;
+use Shopware\Components\Logger;
 
 /**
  * @author Pascal Krason <p.krason@padr.io>
@@ -41,14 +42,23 @@ final class NotifyChannel implements SubscriberInterface
 
         $message = $this->messageBuilder->create($orderVariables);
         if($message === null) {
+            $this->getLogger()->debug('Missing order variables');
             return;
         }
 
         try {
             $this->client->notify($message);
         } catch (Client\UnexpectedResponseException $e) {
-            // Todo: Logging
+            $this->getLogger()->error($e->getMessage());
         }
+    }
+
+    /**
+     * @return Logger
+     */
+    private function getLogger()
+    {
+        return Shopware()->Container()->get('pluginlogger');
     }
 
 }
