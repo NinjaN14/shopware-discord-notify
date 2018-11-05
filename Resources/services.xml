@@ -5,8 +5,7 @@
 
     <services>
         <service id="discord_notify.config" class="DiscordNotify\Components\Config">
-            <factory service="shopware.plugin.cached_config_reader" method="getByPluginName" />
-            <argument type="string">DiscordNotify</argument>
+            <factory class="DiscordNotify\Components\Config\Factory" method="create" />
         </service>
 
         <service id="discord_notify.message_builder" class="DiscordNotify\Components\MessageBuilder">

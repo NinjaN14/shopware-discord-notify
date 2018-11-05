@@ -2,6 +2,7 @@
 
 namespace DiscordNotify\Components\Discord;
 
+use DiscordNotify\Components\Config;
 use DiscordNotify\Components\Discord\Client\UnexpectedResponseException;
 
 /**
@@ -14,7 +15,7 @@ final class Client
      */
     private $config;
 
-    public function __construct(array $config)
+    public function __construct(Config $config)
     {
         $this->config = $config;
     }
@@ -27,7 +28,7 @@ final class Client
      */
     public function notify($message): bool
     {
-        $payload = $this->getPayload($this->config['username'], $message);
+        $payload = $this->getPayload($this->config->username, $message);
         $handle = $this->createCurlHandle($this->config, $payload);
 
         $response = curl_exec($handle);
@@ -45,11 +46,11 @@ final class Client
         return true;
     }
 
-    private function createCurlHandle(array $config, string $payload)
+    private function createCurlHandle(Config $config, string $payload)
     {
         $handle = curl_init();
 
-        curl_setopt($handle, CURLOPT_URL, $config['webhookUrl']);
+        curl_setopt($handle, CURLOPT_URL, $config->webhookUrl);
         curl_setopt($handle, CURLOPT_POST, 1);
         curl_setopt($handle, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);

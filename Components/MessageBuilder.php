@@ -14,9 +14,9 @@ final class MessageBuilder
      */
     private $messageTemplate;
 
-    public function __construct(array $config)
+    public function __construct(Config $config)
     {
-        $this->messageTemplate = $config['messageTemplate'];
+        $this->messageTemplate = $config->messageTemplate;
     }
 
     public function create(array $items)
